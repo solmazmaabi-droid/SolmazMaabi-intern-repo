@@ -70,3 +70,8 @@ I can improve my workflow by:
 - Reviewing the Kanban board daily to track progress
 
 These practices help maintain focus and improve delivery speed.
+
+### Identify one way you can improve task tracking in your role.
+One way I can improve task tracking in my role is by **updating the status of tasks immediately whenever my work changes**. By consistently moving tasks on the Kanban board and adding brief notes when progress is made or when blockers arise, I can improve visibility for the team, reduce misunderstandings, and ensure priorities are clear.
+
+
