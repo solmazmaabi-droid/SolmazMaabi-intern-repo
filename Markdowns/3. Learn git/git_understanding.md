@@ -135,4 +135,58 @@ Manual review can still be helpful once the bad commit is found, but using `git 
 
 ---
 
+# 📌 Advanced Git Commands & When to Use Them
+
+## `git checkout main -- <file>`
+### What it does
+This command restores a specific file from the `main` branch into my current working branch **without switching branches**. It replaces the current version of that file with the version that exists on `main`, while leaving other files and changes untouched.
+
+### When I’d use it in a real project
+- If I accidentally broke a single file and want to reset just that file to the version on `main`
+- If I want to discard experimental edits to one file but keep other local work
+- If I need the latest “known good” version of a file from `main` without doing a full merge or reset
+
+---
+
+## `git cherry-pick <commit>`
+### What it does
+`git cherry-pick` applies a specific commit from another branch onto my current branch. It copies the change introduced by that commit, creating a new commit on the target branch.
+
+### When I’d use it in a real project
+- If a small fix was made on a feature branch and I need just that fix on `main` (without merging all feature work)
+- If I want to move a single bug fix into a release branch
+- When a commit is useful across branches but merging the whole branch would bring unwanted changes
+
+---
+
+## `git log`
+### What it does
+`git log` shows the commit history, including commit hashes, authors, dates, and messages. It helps track how a project evolved over time. With options (like `--oneline`), it becomes easier to scan quickly.
+
+### When I’d use it in a real project
+- To understand what changed recently and why
+- To find the commit hash needed for actions like reverting or cherry-picking
+- To trace when a feature or bug fix was introduced
+- To review the history of a file or branch during debugging
+
+---
+
+## `git blame <file>`
+### What it does
+`git blame <file>` shows which commit (and which author) last changed each line of a file, along with timestamps. It’s useful for understanding the origin of specific code.
+
+### When I’d use it in a real project
+- When I need to understand why a particular line exists
+- To identify where a bug might have been introduced
+- To find the right commit to inspect for context
+- To ask questions to the right person (carefully and respectfully) or learn from past decisions
+
+---
+
+## Overall Reflection
+These commands are especially important in long-running projects with multiple developers because they help:
+- recover from mistakes without losing unrelated work (`checkout main -- <file>`)
+- move targeted fixes between branches (`cherry-pick`)
+- understand how the codebase evolved (`log`)
+- trace the origin of changes for debugging and context (`blame`)
 
