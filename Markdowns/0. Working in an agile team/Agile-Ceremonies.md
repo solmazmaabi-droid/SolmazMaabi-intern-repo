@@ -88,3 +88,10 @@ Front-end work often depends on design updates, API readiness, and user feedback
 
 This daily alignment helps ensure that front-end development remains efficient, collaborative, and aligned with sprint objectives.
 
+## ** 🛠️ Task
+
+### Document one change you can make to improve your team collaboration.
+
+One change I can make to improve team collaboration is to **share clearer and more frequent progress updates**. By regularly updating task status and briefly communicating what I’m working on, what’s completed, and any blockers, I can help the team stay aligned, reduce misunderstandings, and make it easier for others to support or coordinate work with me.
+
+
