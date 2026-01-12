@@ -103,3 +103,36 @@ Poor commit messages can cause problems because they:
 
 Overall, good commit messages are a small habit that saves time and prevents confusion in the long term.
 
+---
+
+# 📌 Debugging with git bisect
+
+## What does `git bisect` do?
+`git bisect` is a Git tool that helps find the exact commit that introduced a bug. It uses a binary search approach: you mark one commit as **good** (where the bug does not exist) and another as **bad** (where the bug exists). Git then checks out a commit in the middle, and you test it. Based on whether that commit is good or bad, Git narrows the search range by half each time until it identifies the first bad commit.
+
+In simple terms: it helps you locate the bug-causing commit quickly, even when there are many commits.
+
+---
+
+## When would you use it in a real-world debugging situation?
+I would use `git bisect` when:
+- A bug is present now, but I know it worked previously
+- There have been many commits since it last worked, making it unclear where the bug started
+- The bug can be reliably reproduced (so I can test each checked-out commit)
+- I need a fast, systematic way to identify the cause, especially in a shared codebase
+
+This is especially useful for regressions, where a feature used to work and suddenly stopped working after recent changes.
+
+---
+
+## How does it compare to manually reviewing commits?
+Compared to manually reviewing commits, `git bisect` is:
+- **Faster:** it reduces the number of commits you need to check dramatically by using binary search (instead of checking one-by-one).
+- **More reliable:** it is a structured method that avoids guessing or missing the correct commit.
+- **Less overwhelming:** it helps narrow down changes even when commit history is large.
+
+Manual review can still be helpful once the bad commit is found, but using `git bisect` makes the process much more efficient than reading or testing commits in order.
+
+---
+
+
