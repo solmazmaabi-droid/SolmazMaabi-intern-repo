@@ -256,3 +256,38 @@ Branches allow developers to work on changes in isolation before they are merged
 ## What happens if two people edit the same file on different branches?
 If two people edit the same file on different branches, Git keeps those changes separate until the branches are merged. When the branches are merged, Git will try to combine the changes automatically. If the edits affect different lines, Git can usually merge them without issue. If they affect the same lines, a merge conflict occurs and must be resolved manually. This process ensures that no changes are lost and that conflicts are handled deliberately rather than silently overwriting someone else’s work.
 
+---
+
+# 📌 Git Concepts: Staging vs. Committing
+
+## What is the difference between staging and committing?
+Staging and committing are two separate steps in Git that serve different purposes.
+
+- **Staging** is the process of selecting which changes you want to include in your next commit. When you stage a file using `git add`, the changes are placed in the *staging area*, but they are not yet saved to the repository history.
+- **Committing** is the act of permanently recording the staged changes into the Git history. When you run `git commit`, Git takes everything that is currently staged and creates a new commit.
+
+In short:
+- Staging = preparing changes
+- Committing = saving those prepared changes to history
+
+---
+
+## Why does Git separate these two steps?
+Git separates staging and committing to give developers more control over what goes into each commit. This allows you to:
+- Review changes before committing
+- Group related changes into a single, meaningful commit
+- Avoid committing unfinished or accidental changes
+- Create cleaner and more logical commit history
+
+This separation is especially useful in team environments where clear commit history improves collaboration and code reviews.
+
+---
+
+## When would you want to stage changes without committing?
+You might stage changes without committing when:
+- You are still working but want to save a set of changes temporarily
+- You want to commit only part of your work and leave other changes uncommitted
+- You are reviewing staged changes before writing a commit message
+- You are waiting for feedback or need to make final checks before committing
+
+Overall, staging allows you to work more deliberately and helps maintain a clean, understandable Git history.
