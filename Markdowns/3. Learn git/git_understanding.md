@@ -190,3 +190,69 @@ These commands are especially important in long-running projects with multiple d
 - understand how the codebase evolved (`log`)
 - trace the origin of changes for debugging and context (`blame`)
 
+---
+
+📌 # Merge Conflicts & Conflict Resolution
+
+Merge conflicts occur when Git cannot automatically merge changes from different branches. This usually happens when multiple changes overlap and Git needs human input to decide which version to keep.
+
+## Common Causes of Merge Conflicts
+
+### Editing the Same Lines in a File
+The most common cause of merge conflicts is when two branches modify the same lines in the same file. Git cannot determine which change should take priority.
+
+### File Deleted in One Branch and Modified in Another
+A conflict can occur when one branch deletes a file while another branch makes changes to it. Git cannot decide whether the file should exist or be removed.
+
+### File Renamed Differently Across Branches
+If a file is renamed in one branch and modified or renamed differently in another branch, Git may not be able to reconcile the file history correctly.
+
+### Long-Lived Branches
+Branches that are not regularly updated from the main branch are more likely to have conflicts because the codebase changes significantly over time.
+
+### Large or Unfocused Commits
+Large commits that modify many files increase the risk of conflicts, especially when multiple developers are working on overlapping areas of the codebase.
+
+### Poor Communication Between Team Members
+Conflicts are more likely when team members unknowingly work on the same files or features without coordination.
+
+### Automated Formatting or Refactoring
+Large formatting or refactoring changes can cause conflicts when another branch makes functional changes in the same files, even if the logic itself did not change.
+
+## Summary
+Merge conflicts are a normal part of collaborative development. They occur when Git cannot safely merge changes automatically and require manual resolution. Keeping branches up to date, making small commits, and communicating changes can help reduce conflicts.
+
+---
+
+## Write about your experience in 
+
+### What caused the conflict?
+The merge conflict was caused by making changes to the **same file and the same line** in two different branches. I first edited a file on a feature branch and committed the change. Then, I switched back to the `main` branch and made a different edit to the same part of the file. When I tried to merge the feature branch back into `main`, Git could not automatically decide which version to keep, resulting in a merge conflict.
+
+---
+
+### How did you resolve the conflict?
+I resolved the conflict using my Git desktop client (VS Code). VS Code highlighted the conflicting file and showed the conflict markers that separated the changes from each branch. I reviewed both versions, decided which parts should be kept, and manually edited the file to produce the correct final version. After removing the conflict markers and saving the file, I staged the resolved file and committed the merge.
+
+---
+
+### What did you learn?
+This experience taught me that merge conflicts are a normal part of collaborative development, especially when multiple branches modify the same files. I learned how to read conflict markers, understand where changes come from, and confidently resolve conflicts instead of avoiding them. I also learned that making smaller commits, pulling changes regularly, and communicating with the team can help reduce the number of conflicts in real projects.
+
+---
+
+# 📌 Branching & Team Collaboration
+
+## Why is pushing directly to main problematic?
+Pushing directly to the `main` branch is problematic because it can introduce bugs or unfinished work into the production codebase without review. If multiple people push directly to `main`, it becomes harder to track changes, review code quality, and maintain stability. A single mistake can affect everyone, and rolling back changes becomes more difficult when commits are mixed together without proper checks.
+
+---
+
+## How do branches help with reviewing code?
+Branches allow developers to work on changes in isolation before they are merged into `main`. This makes it easier to create Pull Requests, where code can be reviewed, tested, and discussed by other team members. Reviewers can clearly see what changed, why it changed, and suggest improvements without affecting the stable code. Branches also encourage smaller, focused changes, which makes reviews more effective and manageable.
+
+---
+
+## What happens if two people edit the same file on different branches?
+If two people edit the same file on different branches, Git keeps those changes separate until the branches are merged. When the branches are merged, Git will try to combine the changes automatically. If the edits affect different lines, Git can usually merge them without issue. If they affect the same lines, a merge conflict occurs and must be resolved manually. This process ensures that no changes are lost and that conflicts are handled deliberately rather than silently overwriting someone else’s work.
+
