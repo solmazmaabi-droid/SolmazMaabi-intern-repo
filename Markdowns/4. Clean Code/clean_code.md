@@ -1,3 +1,37 @@
+# 📌 Understanding Clean Code Principles
+
+## Simplicity
+Simplicity means keeping code as straightforward as possible while still meeting requirements. Simple code avoids unnecessary layers, overly clever tricks, and complicated control flow. When code is simple, it is easier to test, easier to change, and less likely to contain hidden bugs.
+
+## Readability
+Readability means code should be easy for a human to understand. Clean code communicates intent clearly through good naming, logical structure, and minimal complexity. Readable code reduces the time needed to review changes, debug issues, and onboard new team members.
+
+## Maintainability
+Maintainability means the codebase can be updated and extended without creating chaos. Maintainable code is modular, predictable, and has clear boundaries between responsibilities. This matters because most code is read and modified far more often than it is written—future changes should not require rewriting everything.
+
+## Consistency
+Consistency means following shared conventions such as formatting rules, naming patterns, folder structure, and team standards. Consistent code feels familiar across the project, which reduces confusion and makes collaboration smoother. It also makes automated tooling (linters, formatters, CI checks) more effective.
+
+## Efficiency
+Efficiency means writing code that performs well and uses resources sensibly, but without premature optimisation. Clean code balances performance with clarity. It focuses on solving real bottlenecks when they appear, rather than over-engineering early. Efficient code should still remain readable and maintainable.
+
+---
+
+# Example of Messy Code and Why It’s Hard to Read
+
+## Messy code example (written example)
+A common messy pattern is a long function with unclear naming, repeated logic, and deeply nested conditionals. This kind of code is difficult to read because:
+- It mixes multiple responsibilities (validation, business logic, and formatting) in one place
+- It contains deeply nested `if/else` blocks that hide the main logic path
+- Variable names are vague (e.g., `x`, `data`, `temp`) so intent is unclear
+- There is duplicate logic scattered through the function, which increases maintenance effort
+- It’s hard to test because it is not broken into smaller, predictable parts
+
+---
+
+## Why this matters
+Messy code increases the chance of bugs because developers may misunderstand the logic or miss an edge case. It also slows development because changes take longer and feel riskier. Refactoring towards clean code principles (small functions, clear naming, and simpler control flow) makes the code easier to maintain and safer to update.
+
 # 📌 Refactoring Code for Simplicity
 
 ## Common refactoring techniques (research summary)
