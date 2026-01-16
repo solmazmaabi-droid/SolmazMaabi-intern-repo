@@ -22,3 +22,49 @@ Refining code based on unit test feedback improved readability by making logic m
 
 ## Reflection
 Unit testing reinforces good coding practices by encouraging thoughtful design and intentional behaviour. Writing tests shifts the focus from simply making code work to making it reliable, understandable, and maintainable. Overall, unit tests make future debugging easier by reducing uncertainty and providing a safety net when refactoring or extending functionality.
+
+---
+
+# 📌 Handling Errors & Edge Cases
+
+## Strategies for handling errors and edge cases (including Guard Clauses)
+Robust code anticipates unexpected inputs and failure conditions. Common strategies include:
+- **Guard clauses (early returns):** Check invalid conditions at the start of a function and exit early. This reduces deep nesting and makes logic easier to follow.
+- **Input validation:** Confirm required values exist and have the correct type/format before using them.
+- **Fail fast with clear errors:** Throw meaningful errors (or return clear error values) so problems are easier to diagnose.
+- **Safe defaults:** Use default values where appropriate to avoid `undefined` behaviour, but only when it makes sense.
+- **Graceful handling:** For non-critical failures, handle the error without crashing (e.g., show a fallback message, retry, or skip a bad item).
+- **Logging and monitoring:** Record unexpected states so issues can be investigated.
+- **Testing edge cases:** Add unit tests for invalid inputs and boundary conditions (empty values, null/undefined, unusual formats).
+
+---
+
+## Existing function chosen (issue found)
+I used a simple name-formatting function as the example. The original version assumed inputs were always valid strings and did not handle cases like:
+- `null` / `undefined`
+- empty strings
+- extra whitespace
+
+Because of this, the function could crash unexpectedly or return incorrect results depending on input.
+
+---
+
+## Refactor summary (improved error handling)
+To improve reliability, I refactored the function by:
+- validating that both inputs are strings
+- trimming whitespace
+- rejecting empty values after trimming
+- using guard clauses so invalid cases are handled early and clearly
+
+This made the behaviour predictable and reduced the chance of silent bugs.
+
+---
+
+## Reflection
+
+### What was the issue with the original code?
+The issue was that the original code relied on assumptions about input quality. It did not validate inputs or handle invalid cases, which meant it could break in real-world usage where input is often messy or missing. This also made debugging harder because failures could happen far away from the source of the problem.
+
+### How does handling errors improve reliability?
+Handling errors improves reliability by making the code behave consistently even when something unexpected happens. Validation and guard clauses prevent bad data from flowing through the system, reduce crashes, and provide clearer failure messages. This makes the software more stable for users and easier for developers to maintain, test, and debug over time.
+
