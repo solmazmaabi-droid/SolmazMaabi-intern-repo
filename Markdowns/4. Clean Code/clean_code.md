@@ -1,3 +1,102 @@
+# 📌 Refactoring Code for Simplicity
+
+## Common refactoring techniques (research summary)
+Some common techniques for simplifying code include:
+- **Extract function:** break a large function into smaller, named helpers
+- **Rename variables/functions:** use clearer names to reduce the need for comments
+- **Remove duplication:** reuse shared logic instead of copying it
+- **Replace nested conditionals with guard clauses:** simplify flow and reduce indentation
+- **Simplify boolean logic:** remove unnecessary comparisons and double negatives
+- **Use early returns:** reduce branching and make behaviour easier to follow
+- **Replace “clever” code with readable code:** prioritise clarity over shortness
+- **Separate responsibilities:** split logic so each piece has one job
+
+---
+
+## Example of overly complicated code (what I chose)
+I used an example where logic was implemented with too many nested conditionals and mixed responsibilities (validation, computation, and formatting all in one place). The original version was difficult to follow because:
+- it had multiple levels of indentation
+- it handled many different cases in one block
+- the intent of each step was unclear without careful reading
+
+---
+
+## Reflection
+
+## What made the original code complex?
+The original code was complex because it tried to handle too many things at once. It contained deeply nested `if/else` blocks and combined validation, business rules, and output formatting in a single flow. This increased cognitive load, made it harder to test, and made it easier to introduce bugs when changing one part of the logic.
+
+---
+
+## How did refactoring improve it?
+Refactoring improved the code by making the structure clearer and reducing mental effort:
+- I used **guard clauses / early returns** to reduce nesting and make the main path easier to see.
+- I **split responsibilities** into smaller helper functions so each part had a clear purpose.
+- I improved naming so the code explained itself more naturally.
+
+As a result, the refactored code became easier to read, easier to test, and safer to maintain because changes are more local and predictable.
+
+---
+
+# 📌 Commenting & Documentation
+
+## Best practices for comments and documentation
+Helpful comments and documentation should explain the “why” behind decisions, clarify intent, and reduce confusion for future readers. Good comments add context that the code alone cannot easily communicate, such as business rules, edge cases, assumptions, or reasons for choosing a particular approach.
+
+Good commenting practices:
+- Write comments that explain **why** something is done, not what the code obviously does
+- Keep comments **short, accurate, and up to date**
+- Document **public functions, APIs, and complex logic** where a reader needs context
+- Use consistent style and avoid excessive commentary
+- Prefer documentation that helps other developers use or change the code (e.g., README notes, function docs)
+
+---
+
+## Example: Poorly commented code → improved comments
+
+### Poor comments (unhelpful)
+The comments below repeat what the code already says and don’t explain intent:
+- “increment i”
+- “loop through list”
+- “do the thing”
+These kinds of comments clutter the code and become outdated easily.
+
+### Improved comments (useful)
+Better comments focus on intent and reasoning, for example:
+- explaining why input is validated early
+- noting why a certain rule exists (e.g., discount logic or safety constraint)
+- clarifying a tricky edge case or performance decision
+- explaining expected behaviour when data is missing
+
+A good comment helps a future developer understand what the code is trying to achieve and what constraints it must follow.
+
+---
+
+## Reflection
+
+## When should you add comments?
+You should add comments when:
+- The reason behind the code is not obvious (business rules, compliance rules, product requirements)
+- There is a non-obvious edge case or workaround
+- You are making a decision that might look strange without context
+- You need to warn about a known limitation or a future improvement area
+- You are documenting how to use a function/module (inputs, outputs, side effects)
+
+In short: comments are most valuable when they explain **intent and context**.
+
+---
+
+## When should you avoid comments and instead improve the code?
+You should avoid comments when:
+- The code is unclear because of poor naming or structure (rename variables/functions instead)
+- Comments simply restate what the code does (they add noise, not value)
+- The code can be simplified by refactoring (smaller functions, guard clauses, fewer nested blocks)
+- The comment is trying to explain complicated logic that should be broken into clearer steps
+
+In many cases, the best “comment” is clean code: good naming, small functions, and clear structure. Comments should support code—not compensate for confusing code.
+
+---
+
 # 📌 Writing Unit Tests for Clean Code
 
 ## Importance of Unit Testing
@@ -68,62 +167,5 @@ The issue was that the original code relied on assumptions about input quality. 
 ### How does handling errors improve reliability?
 Handling errors improves reliability by making the code behave consistently even when something unexpected happens. Validation and guard clauses prevent bad data from flowing through the system, reduce crashes, and provide clearer failure messages. This makes the software more stable for users and easier for developers to maintain, test, and debug over time.
 
----
 
-# 📌 Commenting & Documentation
-
-## Best practices for comments and documentation
-Helpful comments and documentation should explain the “why” behind decisions, clarify intent, and reduce confusion for future readers. Good comments add context that the code alone cannot easily communicate, such as business rules, edge cases, assumptions, or reasons for choosing a particular approach.
-
-Good commenting practices:
-- Write comments that explain **why** something is done, not what the code obviously does
-- Keep comments **short, accurate, and up to date**
-- Document **public functions, APIs, and complex logic** where a reader needs context
-- Use consistent style and avoid excessive commentary
-- Prefer documentation that helps other developers use or change the code (e.g., README notes, function docs)
-
----
-
-## Example: Poorly commented code → improved comments
-
-### Poor comments (unhelpful)
-The comments below repeat what the code already says and don’t explain intent:
-- “increment i”
-- “loop through list”
-- “do the thing”
-These kinds of comments clutter the code and become outdated easily.
-
-### Improved comments (useful)
-Better comments focus on intent and reasoning, for example:
-- explaining why input is validated early
-- noting why a certain rule exists (e.g., discount logic or safety constraint)
-- clarifying a tricky edge case or performance decision
-- explaining expected behaviour when data is missing
-
-A good comment helps a future developer understand what the code is trying to achieve and what constraints it must follow.
-
----
-
-## Reflection
-
-## When should you add comments?
-You should add comments when:
-- The reason behind the code is not obvious (business rules, compliance rules, product requirements)
-- There is a non-obvious edge case or workaround
-- You are making a decision that might look strange without context
-- You need to warn about a known limitation or a future improvement area
-- You are documenting how to use a function/module (inputs, outputs, side effects)
-
-In short: comments are most valuable when they explain **intent and context**.
-
----
-
-## When should you avoid comments and instead improve the code?
-You should avoid comments when:
-- The code is unclear because of poor naming or structure (rename variables/functions instead)
-- Comments simply restate what the code does (they add noise, not value)
-- The code can be simplified by refactoring (smaller functions, guard clauses, fewer nested blocks)
-- The comment is trying to explain complicated logic that should be broken into clearer steps
-
-In many cases, the best “comment” is clean code: good naming, small functions, and clear structure. Comments should support code—not compensate for confusing code.
 
