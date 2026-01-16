@@ -1,21 +1,64 @@
 {
+  
   "name": "solmazmaabi-intern-repo",
+  
   "version": "1.0.0",
+  
   "description": "",
+  
   "main": "index.js",
+  
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  
+    
+  "lint:md": "markdownlint \"**/*.md\" --ignore node_modules",
+  
+    
+  "spellcheck": "cspell \"**/*.md\"",
+  
+    
+  "checks": "npm run lint:md && npm run spellcheck",
+  
+    
+  "test": "jest"
+  
+  
   },
+  
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/solmazmaabi-droid/SolmazMaabi-intern-repo.git"
+  
+    
+  "type": "git",
+  
+    
+  "url": "git+https://github.com/solmazmaabi-droid/SolmazMaabi-intern-repo.git"
+  
   },
+  
   "keywords": [],
+  
   "author": "",
+  
   "license": "ISC",
+  
   "type": "commonjs",
+  
   "bugs": {
-    "url": "https://github.com/solmazmaabi-droid/SolmazMaabi-intern-repo/issues"
+  
+    
+  "url": "https://github.com/solmazmaabi-droid/SolmazMaabi-intern-repo/issues"
+  
   },
-  "homepage": "https://github.com/solmazmaabi-droid/SolmazMaabi-intern-repo#readme"
+  
+  "homepage": "https://github.com/solmazmaabi-droid/SolmazMaabi-intern-repo#readme",
+  
+  "devDependencies": {
+  
+    
+  "cspell": "^9.6.0",
+  
+    
+  "markdownlint-cli": "^0.47.0"
+  
+  }
 }
