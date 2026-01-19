@@ -132,17 +132,42 @@ Unit tests encourage cleaner code by promoting simple, focused functions with cl
 ---
 
 ## Issues Identified While Testing
-While writing unit tests, it became clear that some assumptions in the code needed to be made explicit. For example, handling invalid inputs and edge cases required clearer logic and validation. Testing highlighted areas where behaviour was undefined or inconsistent, which encouraged improvements in code clarity and robustness.
+## Writing Unit Tests for Clean Code – Practical Evidence
+
+### Testing framework chosen
+**Framework:** Jest (JavaScript)
+
+**Why I chose it:**  
+I chose Jest because it is widely used in JavaScript/React projects, easy to run from the command line (`npm test`), and provides clear output when tests pass/fail. It is also a common standard in many teams, so learning it is useful for real-world collaboration.
 
 ---
 
-## Impact on Readability and Maintainability
-Refining code based on unit test feedback improved readability by making logic more explicit and predictable. The code became easier to maintain because responsibilities were clearer and potential error cases were handled deliberately. This reduces the likelihood of introducing bugs when making future changes.
+### Unit tests written (location in repo)
+- Function file: `src/utils/formatFullName.js`
+- Test file: `src/utils/formatFullName.test.js`
 
 ---
 
-## Reflection
-Unit testing reinforces good coding practices by encouraging thoughtful design and intentional behaviour. Writing tests shifts the focus from simply making code work to making it reliable, understandable, and maintainable. Overall, unit tests make future debugging easier by reducing uncertainty and providing a safety net when refactoring or extending functionality.
+### Example unit tests (copied from my repo)
+```js
+const { formatFullName } = require("./formatFullName");
+
+test("formats first and last name correctly", () => {
+  expect(formatFullName("Solmaz", "Maabi")).toBe("Solmaz Maabi");
+});
+
+test("trims extra whitespace", () => {
+  expect(formatFullName("  Solmaz ", " Maabi ")).toBe("Solmaz Maabi");
+});
+
+test("throws error for empty values", () => {
+  expect(() => formatFullName("", "Maabi")).toThrow();
+});
+
+test("throws error for invalid input types", () => {
+  expect(() => formatFullName(null, "Maabi")).toThrow(TypeError);
+});
+
 
 ---
 
