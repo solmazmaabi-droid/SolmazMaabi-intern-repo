@@ -1,104 +1,110 @@
-// src/code_smells_before.js
-// This file intentionally contains multiple code smells for refactoring practice.
+// src/code_smells_after.js
+// Refactored version of the code smells examples (cleaner, clearer, and easier to maintain).
 
 // --------------------------------------------------
-// 1) Magic Numbers & Strings
+// 1) Magic Numbers & Strings -> Use named constants
 // --------------------------------------------------
+const FREE_SHIPPING_THRESHOLD = 150;
+const SHIPPING_RATE = 0.07;
+const BASE_SHIPPING_FEE = 12.99;
+
 function calculateShippingCost(orderTotal) {
-  if (orderTotal > 150) {
-    return 0;
+  if (typeof orderTotal !== "number" || Number.isNaN(orderTotal) || orderTotal < 0) {
+    throw new Error("orderTotal must be a non-negative number");
   }
-  return orderTotal * 0.07 + 12.99;
+
+  if (orderTotal > FREE_SHIPPING_THRESHOLD) return 0;
+  return orderTotal * SHIPPING_RATE + BASE_SHIPPING_FEE;
 }
 
 // --------------------------------------------------
-// 2) Long Functions (does too much)
+// 2) Long Functions -> Split into small helpers + guard clauses
 // --------------------------------------------------
-function processCheckout(cart, userType, couponValue) {
-  if (!cart || cart.length === 0) {
+function validateCart(cart) {
+  if (!Array.isArray(cart) || cart.length === 0) {
     throw new Error("Cart is empty");
   }
+}
 
-  let total = 0;
-  for (let i = 0; i < cart.length; i++) {
-    total += cart[i].price * cart[i].quantity;
-  }
+function calculateCartTotal(cart) {
+  return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+}
 
-  if (userType === "member") {
-    total = total * 0.9;
-  }
+function applyMemberDiscount(total, userType) {
+  return userType === "member" ? total * 0.9 : total;
+}
 
-  if (couponValue) {
-    total = total - couponValue;
-    if (total < 0) {
-      total = 0;
-    }
-  }
+function applyCoupon(total, couponValue) {
+  if (!couponValue) return total;
+  return Math.max(0, total - couponValue);
+}
 
-  total = Math.round(total * 100) / 100;
+function roundToCents(value) {
+  return Math.round(value * 100) / 100;
+}
 
-  return total;
+function processCheckout(cart, userType, couponValue) {
+  validateCart(cart);
+
+  const subtotal = calculateCartTotal(cart);
+  const discounted = applyMemberDiscount(subtotal, userType);
+  const afterCoupon = applyCoupon(discounted, couponValue);
+
+  return roundToCents(afterCoupon);
 }
 
 // --------------------------------------------------
-// 3) Duplicate Code
+// 3) Duplicate Code -> Extract a reusable function
 // --------------------------------------------------
-function formatCustomerName(customer) {
-  return customer.firstName.trim() + " " + customer.lastName.trim();
-}
-
-function formatEmployeeName(employee) {
-  return employee.firstName.trim() + " " + employee.lastName.trim();
+function formatFullName(person) {
+  return `${person.firstName.trim()} ${person.lastName.trim()}`;
 }
 
 // --------------------------------------------------
-// 4) Large Class (God Object)
+// 4) Large Class (God Object) -> Split responsibilities
 // --------------------------------------------------
-class UserManager {
+class AuthService {
   loginUser() {}
   logoutUser() {}
+}
+
+class UserProfileService {
   fetchUserProfile() {}
   updateUserProfile() {}
+}
+
+class BillingService {
   calculateSubscriptionPrice() {}
   chargeCreditCard() {}
-  sendConfirmationEmail() {}
   generateInvoice() {}
 }
 
-// --------------------------------------------------
-// 5) Deeply Nested Conditionals
-// --------------------------------------------------
-function canUserAccessFeature(user) {
-  if (user) {
-    if (user.isActive) {
-      if (user.subscription) {
-        if (user.subscription.plan) {
-          if (user.subscription.plan === "pro") {
-            return true;
-          }
-        }
-      }
-    }
-  }
-  return false;
+class NotificationService {
+  sendConfirmationEmail() {}
 }
 
 // --------------------------------------------------
-// 6) Commented-Out Code
+// 5) Deeply Nested Conditionals -> Guard clauses
+// --------------------------------------------------
+function canUserAccessFeature(user) {
+  if (!user) return false;
+  if (!user.isActive) return false;
+  if (!user.subscription) return false;
+
+  return user.subscription.plan === "pro";
+}
+
+// --------------------------------------------------
+// 6) Commented-Out Code -> Remove dead code, rely on Git history
 // --------------------------------------------------
 function loadUserData() {
-  // const cachedData = localStorage.getItem("user_data");
-  // if (cachedData) {
-  //   return JSON.parse(cachedData);
-  // }
-
   return fetch("/api/user").then((response) => response.json());
 }
 
 // --------------------------------------------------
-// 7) Inconsistent Naming
+// 7) Inconsistent Naming -> Use descriptive names
 // --------------------------------------------------
-function calc(a, b) {
-  const tmp = a + b;
-  return tmp;
+function calculateSum(firstNumber, secondNumber) {
+  const sum = firstNumber + secondNumber;
+  return sum;
 }
