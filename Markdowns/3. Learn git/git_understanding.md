@@ -62,6 +62,38 @@ Creating PRs encourages better communication and accountability. It also helps m
 
 # 📌 Writing Meaningful Commit Messages
 
+## Writing Meaningful Commit Messages – Evidence
+
+To complete the commit message exercise, I created multiple commits using different commit message styles and pushed them to my GitHub repository. Below are the actual commit messages from my commit history.
+
+### Vague commit message
+Commit hash: `37f06ca`
+
+
+This commit message is too vague and does not explain what was changed or why, making it unhelpful for understanding the project history.
+
+---
+
+### Overly detailed commit message
+Commit hash: `02afe7b`
+
+
+This commit message contains excessive detail and is difficult to scan quickly when reviewing commit history.
+
+---
+
+### Well-structured commit message
+Commit hash: `a2570d8`
+
+
+This commit message is clear and concise, describing exactly what was added. It provides enough context without unnecessary detail and makes the purpose of the change easy to understand.
+
+---
+
+These commits demonstrate the difference between vague, overly detailed, and well-structured commit messages and were pushed to GitHub as evidence.
+
+
+
 ## Best practices I found for commit messages
 A good commit message should be:
 - **Clear and specific** about what changed and why
