@@ -1,33 +1,36 @@
-function calculateFinalPrice(price, userType, hasCoupon, couponValue) {
-  let finalPrice = price;
+// src/utils/discount.js (AFTER)
+const MEMBER_DISCOUNT_RATE = 0.1;
 
-  if (userType) {
-    if (userType === "member") {
-      if (hasCoupon) {
-        if (couponValue && couponValue > 0) {
-          finalPrice = price - couponValue;
-          if (finalPrice < 0) {
-            finalPrice = 0;
-          }
-        } else {
-          finalPrice = price * 0.9;
-        }
-      } else {
-        finalPrice = price * 0.9;
-      }
-    } else {
-      if (hasCoupon) {
-        if (couponValue && couponValue > 0) {
-          finalPrice = price - couponValue;
-          if (finalPrice < 0) {
-            finalPrice = 0;
-          }
-        }
-      }
-    }
+function clampToZero(value) {
+  return value < 0 ? 0 : value;
+}
+
+function applyCoupon(price, couponValue) {
+  if (!couponValue || couponValue <= 0) return price;
+  return clampToZero(price - couponValue);
+}
+
+function applyMemberDiscount(price, userType) {
+  if (userType !== "member") return price;
+  return price * (1 - MEMBER_DISCOUNT_RATE);
+}
+
+function roundToCents(value) {
+  return Math.round(value * 100) / 100;
+}
+
+function calculateFinalPrice(price, userType, hasCoupon, couponValue) {
+  if (typeof price !== "number" || Number.isNaN(price) || price < 0) {
+    throw new Error("price must be a non-negative number");
   }
 
-  return Math.round(finalPrice * 100) / 100;
+  let finalPrice = applyMemberDiscount(price, userType);
+
+  if (hasCoupon) {
+    finalPrice = applyCoupon(finalPrice, couponValue);
+  }
+
+  return roundToCents(finalPrice);
 }
 
 module.exports = { calculateFinalPrice };
