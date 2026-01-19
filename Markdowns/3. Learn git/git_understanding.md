@@ -216,6 +216,38 @@ This command restores a specific file from the `main` branch into my current wor
 - If I want to discard experimental edits to one file but keep other local work
 - If I need the latest “known good” version of a file from `main` without doing a full merge or reset
 
+
+**What I did**
+1. Modified a file locally to create an uncommitted change.
+2. Restored that file back to the version on `main` without affecting other files.
+
+**Commands I ran**
+```bash
+echo "TEMP LINE" >> README.md
+git status
+git checkout main -- README.md
+git status
+
+**Output**
+On branch main
+Your branch is up to date with 'origin/main'.
+
+You are currently bisecting, started from branch 'test'.
+  (use "git bisect reset" to get back to the original branch)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+On branch main
+Your branch is up to date with 'origin/main'.
+
+You are currently bisecting, started from branch 'test'.
+  (use "git bisect reset" to get back to the original branch)
+
+nothing to commit, working tree clean
 ---
 
 ## `git cherry-pick <commit>`
@@ -226,6 +258,30 @@ This command restores a specific file from the `main` branch into my current wor
 - If a small fix was made on a feature branch and I need just that fix on `main` (without merging all feature work)
 - If I want to move a single bug fix into a release branch
 - When a commit is useful across branches but merging the whole branch would bring unwanted changes
+
+**What I did**
+1. Created a branch and made two commits.
+
+2. Switched back to main.
+
+3. Cherry-picked one commit onto main without merging the whole branch.
+
+**Commands I ran**
+
+git checkout -b feature/cherry-pick-demo
+echo "Cherry-pick demo line 1" >> cherry-pick-demo.txt
+git add cherry-pick-demo.txt
+git commit -m "docs: add cherry-pick demo line 1"
+
+echo "Cherry-pick demo line 2" >> cherry-pick-demo.txt
+git add cherry-pick-demo.txt
+git commit -m "docs: add cherry-pick demo line 2"
+
+git log --oneline -3
+git checkout main
+git cherry-pick PASTE_COMMIT_HASH_HERE
+git log --oneline -3
+
 
 ---
 
@@ -239,6 +295,22 @@ This command restores a specific file from the `main` branch into my current wor
 - To trace when a feature or bug fix was introduced
 - To review the history of a file or branch during debugging
 
+**What I did**
+I used git log to review commit history and understand how changes evolved.
+
+**Commands I ran**
+git log --oneline --decorate --graph --max-count=10
+
+**output**
+
+* b8b4aec (origin/main, origin/HEAD) add evidence
+* 04fd8de Code Smells: After
+* d1040ae Code Smells: Before
+* 044113e Code Smells: Before
+* 3227740 add jest unit test
+* 97d4092 Add evidence
+* 1c83b53 After refactoring
+* 8f411bd Before refactoring
 ---
 
 ## `git blame <file>`
@@ -251,6 +323,14 @@ This command restores a specific file from the `main` branch into my current wor
 - To find the right commit to inspect for context
 - To ask questions to the right person (carefully and respectfully) or learn from past decisions
 
+**What I did**
+I used git blame to see which commit last modified specific lines in a file.
+
+**Commands I ran**
+git blame README.md | head -n 10
+
+**Output**
+^1a9a457 (Sol 2026-01-05 12:15:36 +1100 1) # SolmazMaabi-intern-repo
 ---
 
 ## Overall Reflection
