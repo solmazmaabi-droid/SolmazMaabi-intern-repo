@@ -379,6 +379,9 @@ Merge conflicts are a normal part of collaborative development. They occur when 
 ### What caused the conflict?
 The merge conflict was caused by making changes to the **same file and the same line** in two different branches. I first edited a file on a feature branch and committed the change. Then, I switched back to the `main` branch and made a different edit to the same part of the file. When I tried to merge the feature branch back into `main`, Git could not automatically decide which version to keep, resulting in a merge conflict.
 
+### File used for the conflict
+- File name: `merge_conflict_demo.txt
+
 ---
 
 ### How did you resolve the conflict?
