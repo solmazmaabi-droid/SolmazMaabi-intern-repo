@@ -48,27 +48,15 @@ Some common techniques for simplifying code include:
 ---
 
 ## Example of overly complicated code (what I chose)
-I used an example where logic was implemented with too many nested conditionals and mixed responsibilities (validation, computation, and formatting all in one place). The original version was difficult to follow because:
-- it had multiple levels of indentation
-- it handled many different cases in one block
-- the intent of each step was unclear without careful reading
+### Location in repo
+- File: `src/utils/discount.js`
+### What made the original code complex?
+The original version had nested conditionals and repeated coupon logic in multiple branches. It was difficult to follow because the main logic path was hidden inside multiple layers of if/else, and it mixed validation, business rules, and formatting (rounding) in one place.
 
----
+### How did refactoring improve it?
+Refactoring introduced small helper functions and constants, which reduced nesting and duplication. The updated structure makes the intent obvious, keeps each function focused on one job, and makes future changes safer because rules are isolated and easier to test.
 
-## Reflection
 
-## What made the original code complex?
-The original code was complex because it tried to handle too many things at once. It contained deeply nested `if/else` blocks and combined validation, business rules, and output formatting in a single flow. This increased cognitive load, made it harder to test, and made it easier to introduce bugs when changing one part of the logic.
-
----
-
-## How did refactoring improve it?
-Refactoring improved the code by making the structure clearer and reducing mental effort:
-- I used **guard clauses / early returns** to reduce nesting and make the main path easier to see.
-- I **split responsibilities** into smaller helper functions so each part had a clear purpose.
-- I improved naming so the code explained itself more naturally.
-
-As a result, the refactored code became easier to read, easier to test, and safer to maintain because changes are more local and predictable.
 
 ---
 
