@@ -64,3 +64,9 @@ Clean, well-structured code makes it easier to locate bugs, understand program f
 
 ## Conclusion
 Avoiding and refactoring code smells improves code quality, collaboration, and long-term maintainability. Clean code reduces cognitive load, supports teamwork, and makes future debugging and feature development significantly easier.
+
+---
+
+## Commit hash
+04fd8de (HEAD -> main) Code Smells: After
+d1040ae (origin/main, origin/HEAD) Code Smells: Before
