@@ -376,11 +376,28 @@ Merge conflicts are a normal part of collaborative development. They occur when 
 
 ## Write about your experience in 
 
-### What caused the conflict?
-The merge conflict was caused by making changes to the **same file and the same line** in two different branches. I first edited a file on a feature branch and committed the change. Then, I switched back to the `main` branch and made a different edit to the same part of the file. When I tried to merge the feature branch back into `main`, Git could not automatically decide which version to keep, resulting in a merge conflict.
+## Merge Conflicts & Conflict Resolution – Practical Evidence
 
 ### File used for the conflict
-- File name: `merge_conflict_demo.txt
+- File name: `merge_conflict_demo.txt`
+
+---
+
+### Step-by-step process
+
+#### Step 1: Create a feature branch and edit the file
+On a new branch, I created and edited the file:
+merge_conflict_demo.txt
+I committed this change on the feature branch.
+#### Step 2: Switch back to main and make a conflicting change
+I then switched back to the main branch and edited the same line in the same file.
+I committed this change on the main branch.
+#### Step 3: Merge and trigger a conflict
+When I attempted to merge the feature branch back into main, Git detected a conflict because both branches modified the same line in the same file.
+At this point, Git reported a merge conflict and marked the file as conflicted.
+
+### What caused the conflict?
+The merge conflict was caused by making changes to the **same file and the same line** in two different branches. I first edited a file on a feature branch and committed the change. Then, I switched back to the `main` branch and made a different edit to the same part of the file. When I tried to merge the feature branch back into `main`, Git could not automatically decide which version to keep, resulting in a merge conflict.
 
 ---
 
