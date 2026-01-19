@@ -167,6 +167,44 @@ Manual review can still be helpful once the bad commit is found, but using `git 
 
 ---
 
+## Debugging with git bisect – Practical Evidence
+
+To practice using `git bisect`, I created a simple test scenario in my repository where a bug was deliberately introduced and then identified using the Git CLI.
+
+### Test scenario description
+I created a small utility function and made a series of commits:
+1. An initial commit where the function worked correctly.
+2. One or more intermediate commits with refactoring or minor changes.
+3. A commit where I intentionally introduced a bug by changing the core logic of the function so that it produced an incorrect result.
+
+This ensured there was a clear point in the commit history where the behaviour changed from correct to incorrect.
+
+### Using git bisect
+I then used the Git command-line interface to locate the faulty commit.
+
+The process I followed was:
+- I confirmed the bug existed on the current commit.
+- I started the bisect process using `git bisect start`.
+- I marked the current commit as bad using `git bisect bad`.
+- I identified an earlier commit where the function still worked and marked it as good using `git bisect good <commit-hash>`.
+- Git checked out commits between the good and bad points, and for each one I manually tested whether the bug was present.
+- After each test, I marked the commit as `good` or `bad`.
+
+### Result
+After several steps, Git reported the **first bad commit**, which was the commit where I had changed the function logic incorrectly. This confirmed exactly which change introduced the bug.
+
+Once identified, I exited bisect mode using `git bisect reset`.
+
+### What this demonstrated
+This exercise demonstrated that:
+- `git bisect` is an efficient way to locate regressions in a project with many commits.
+- It is much faster and more reliable than manually reviewing every commit.
+- Using bisect requires having a reproducible way to test whether a bug exists.
+
+I confirmed this experiment by running `git bisect` directly in the CLI and observing Git automatically narrow down the faulty commit.
+
+---
+
 # 📌 Advanced Git Commands & When to Use Them
 
 ## `git checkout main -- <file>`
