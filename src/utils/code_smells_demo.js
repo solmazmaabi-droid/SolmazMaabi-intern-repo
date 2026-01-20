@@ -9,7 +9,11 @@ const SHIPPING_RATE = 0.07;
 const BASE_SHIPPING_FEE = 12.99;
 
 function calculateShippingCost(orderTotal) {
-  if (typeof orderTotal !== "number" || Number.isNaN(orderTotal) || orderTotal < 0) {
+  if (
+    typeof orderTotal !== "number" ||
+    Number.isNaN(orderTotal) ||
+    orderTotal < 0
+  ) {
     throw new Error("orderTotal must be a non-negative number");
   }
 
@@ -65,17 +69,21 @@ function formatFullName(person) {
 // --------------------------------------------------
 class AuthService {
   loginUser() {}
+
   logoutUser() {}
 }
 
 class UserProfileService {
   fetchUserProfile() {}
+
   updateUserProfile() {}
 }
 
 class BillingService {
   calculateSubscriptionPrice() {}
+
   chargeCreditCard() {}
+
   generateInvoice() {}
 }
 

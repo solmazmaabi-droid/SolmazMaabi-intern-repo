@@ -1,6 +1,7 @@
 # 📌 Research Assignment: Competitive Landscape
 
 ## Apps reviewed
+
 - Focus Bear
 - Freedom
 - Cold Turkey
@@ -10,9 +11,11 @@
 ---
 
 ## What makes Focus Bear different from these apps?
+
 Focus Bear stands out because it is not just a blocker or a planner. It combines **distraction blocking + habit routines + guided focus + break reminders** in a way that feels designed for people who struggle with executive functioning (especially ADHD/Autism, but also anyone who feels overwhelmed or easily distracted).
 
 In comparison:
+
 - **Freedom** focuses mainly on **blocking websites/apps across devices** with scheduled sessions.
 - **Cold Turkey** is a very strict blocker with strong controls for people who need “hard mode” (highly restrictive blocking).
 - **Tiimo** is more about **visual planning and structure**, supporting day planning and task organisation in an ADHD/Autism-friendly way.
@@ -23,7 +26,9 @@ Focus Bear’s difference is the **combination**: it supports both building rout
 ---
 
 ## If you were a user, why would you choose Focus Bear over competitors?
-If I wanted support beyond just blocking or just planning, I would choose Focus Bear because it helps with *starting tasks and staying consistent*, not only removing distractions. I would choose it because:
+
+If I wanted support beyond just blocking or just planning, I would choose Focus Bear because it helps with _starting tasks and staying consistent_, not only removing distractions. I would choose it because:
+
 - It provides **structure through routines**, which helps when I feel overwhelmed.
 - It supports focus with **blocking and prompts**, which reduces impulsive distractions.
 - It encourages **breaks and sustainability**, which helps avoid burnout.
@@ -34,6 +39,7 @@ Freedom or Cold Turkey would be better if my only goal was strict blocking. Tiim
 ---
 
 ## What’s one feature that other apps have that Focus Bear doesn’t?
+
 One feature competitors offer that Focus Bear could improve or make more visible is **strong “strict mode” enforcement** and/or **cross-device syncing of blocking rules**:
 
 - **Freedom** is known for strong cross-device blocking sessions and strict options that reduce the ability to override focus sessions.
@@ -46,7 +52,9 @@ Even if Focus Bear has some of these features, competitors communicate these str
 ---
 
 ## Based on your research, what’s one improvement Focus Bear could make?
+
 One improvement Focus Bear could make is to add or strengthen **context-aware automation and stricter focus controls**, such as:
+
 - Stronger cross-device enforcement so focus sessions feel consistent across phone + laptop
 
 This would help users who need both supportive routine guidance and strong protection against impulsive distractions, while also making Focus Bear more competitive with Freedom and Cold Turkey.

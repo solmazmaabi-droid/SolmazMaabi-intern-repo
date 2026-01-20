@@ -1,18 +1,23 @@
 # 📌 Understanding Clean Code Principles
 
 ## Simplicity
+
 Simplicity means keeping code as straightforward as possible while still meeting requirements. Simple code avoids unnecessary layers, overly clever tricks, and complicated control flow. When code is simple, it is easier to test, easier to change, and less likely to contain hidden bugs.
 
 ## Readability
+
 Readability means code should be easy for a human to understand. Clean code communicates intent clearly through good naming, logical structure, and minimal complexity. Readable code reduces the time needed to review changes, debug issues, and onboard new team members.
 
 ## Maintainability
+
 Maintainability means the codebase can be updated and extended without creating chaos. Maintainable code is modular, predictable, and has clear boundaries between responsibilities. This matters because most code is read and modified far more often than it is written—future changes should not require rewriting everything.
 
 ## Consistency
+
 Consistency means following shared conventions such as formatting rules, naming patterns, folder structure, and team standards. Consistent code feels familiar across the project, which reduces confusion and makes collaboration smoother. It also makes automated tooling (linters, formatters, CI checks) more effective.
 
 ## Efficiency
+
 Efficiency means writing code that performs well and uses resources sensibly, but without premature optimisation. Clean code balances performance with clarity. It focuses on solving real bottlenecks when they appear, rather than over-engineering early. Efficient code should still remain readable and maintainable.
 
 ---
@@ -20,7 +25,9 @@ Efficiency means writing code that performs well and uses resources sensibly, bu
 # Example of Messy Code and Why It’s Hard to Read
 
 ## Messy code example (written example)
+
 A common messy pattern is a long function with unclear naming, repeated logic, and deeply nested conditionals. This kind of code is difficult to read because:
+
 - It mixes multiple responsibilities (validation, business logic, and formatting) in one place
 - It contains deeply nested `if/else` blocks that hide the main logic path
 - Variable names are vague (e.g., `x`, `data`, `temp`) so intent is unclear
@@ -30,12 +37,15 @@ A common messy pattern is a long function with unclear naming, repeated logic, a
 ---
 
 ## Why this matters
+
 Messy code increases the chance of bugs because developers may misunderstand the logic or miss an edge case. It also slows development because changes take longer and feel riskier. Refactoring towards clean code principles (small functions, clear naming, and simpler control flow) makes the code easier to maintain and safer to update.
 
 # 📌 Refactoring Code for Simplicity
 
 ## Common refactoring techniques (research summary)
+
 Some common techniques for simplifying code include:
+
 - **Extract function:** break a large function into smaller, named helpers
 - **Rename variables/functions:** use clearer names to reduce the need for comments
 - **Remove duplication:** reuse shared logic instead of copying it
@@ -48,24 +58,29 @@ Some common techniques for simplifying code include:
 ---
 
 ## Example of overly complicated code (what I chose)
+
 ### Location in repo
+
 - File: `src/utils/discount.js`
+
 ### What made the original code complex?
+
 The original version had nested conditionals and repeated coupon logic in multiple branches. It was difficult to follow because the main logic path was hidden inside multiple layers of if/else, and it mixed validation, business rules, and formatting (rounding) in one place.
 
 ### How did refactoring improve it?
+
 Refactoring introduced small helper functions and constants, which reduced nesting and duplication. The updated structure makes the intent obvious, keeps each function focused on one job, and makes future changes safer because rules are isolated and easier to test.
-
-
 
 ---
 
 # 📌 Commenting & Documentation
 
 ## Best practices for comments and documentation
+
 Helpful comments and documentation should explain the “why” behind decisions, clarify intent, and reduce confusion for future readers. Good comments add context that the code alone cannot easily communicate, such as business rules, edge cases, assumptions, or reasons for choosing a particular approach.
 
 Good commenting practices:
+
 - Write comments that explain **why** something is done, not what the code obviously does
 - Keep comments **short, accurate, and up to date**
 - Document **public functions, APIs, and complex logic** where a reader needs context
@@ -77,14 +92,18 @@ Good commenting practices:
 ## Example: Poorly commented code → improved comments
 
 ### Poor comments (unhelpful)
+
 The comments below repeat what the code already says and don’t explain intent:
+
 - “increment i”
 - “loop through list”
 - “do the thing”
-These kinds of comments clutter the code and become outdated easily.
+  These kinds of comments clutter the code and become outdated easily.
 
 ### Improved comments (useful)
+
 Better comments focus on intent and reasoning, for example:
+
 - explaining why input is validated early
 - noting why a certain rule exists (e.g., discount logic or safety constraint)
 - clarifying a tricky edge case or performance decision
@@ -97,7 +116,9 @@ A good comment helps a future developer understand what the code is trying to ac
 ## Reflection
 
 ## When should you add comments?
+
 You should add comments when:
+
 - The reason behind the code is not obvious (business rules, compliance rules, product requirements)
 - There is a non-obvious edge case or workaround
 - You are making a decision that might look strange without context
@@ -109,7 +130,9 @@ In short: comments are most valuable when they explain **intent and context**.
 ---
 
 ## When should you avoid comments and instead improve the code?
+
 You should avoid comments when:
+
 - The code is unclear because of poor naming or structure (rename variables/functions instead)
 - Comments simply restate what the code does (they add noise, not value)
 - The code can be simplified by refactoring (smaller functions, guard clauses, fewer nested blocks)
@@ -122,19 +145,23 @@ In many cases, the best “comment” is clean code: good naming, small function
 # 📌 Writing Unit Tests for Clean Code
 
 ## Importance of Unit Testing
+
 Unit testing is an essential practice in software development that focuses on testing small, isolated parts of a program to ensure they behave as expected. By validating functionality early, unit tests help prevent bugs from reaching later stages of development. They also provide confidence when making changes, as developers can quickly verify that existing behaviour remains correct.
 
 ---
 
 ## How Unit Tests Help Keep Code Clean
+
 Unit tests encourage cleaner code by promoting simple, focused functions with clear responsibilities. When code is easy to test, it is usually well-structured and easier to understand. Tests also act as living documentation by clearly describing how a piece of code is supposed to behave. This makes it easier for other developers to understand intent and reduces ambiguity in the codebase.
 
 ---
 
 ## Issues Identified While Testing
+
 ## Writing Unit Tests for Clean Code – Practical Evidence
 
 ### Testing framework chosen
+
 **Framework:** Jest (JavaScript)
 
 **Why I chose it:**  
@@ -143,12 +170,14 @@ I chose Jest because it is widely used in JavaScript/React projects, easy to run
 ---
 
 ### Unit tests written (location in repo)
+
 - Function file: `src/utils/formatFullName.js`
 - Test file: `src/utils/formatFullName.test.js`
 
 ---
 
 ### Example unit tests (copied from my repo)
+
 ```js
 const { formatFullName } = require("./formatFullName");
 
@@ -216,3 +245,4 @@ Handling errors improves reliability by making the code behave consistently even
 
 
 
+```

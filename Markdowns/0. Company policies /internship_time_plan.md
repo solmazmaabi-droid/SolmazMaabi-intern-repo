@@ -1,9 +1,10 @@
 # Internship Time Plan (220 Hours)
 
 ## Student Details
-- **Student Name:** Solmaz Maabi  
-- **Internship Duration:** 12 weeks  
-- **Total Required Hours:** 220 hours  
+
+- **Student Name:** Solmaz Maabi
+- **Internship Duration:** 12 weeks
+- **Total Required Hours:** 220 hours
 
 ---
 
@@ -15,11 +16,11 @@ This time plan outlines how I will complete the required **220 internship hours 
 
 ## Weekly Schedule
 
-| Day     | Time              | Hours | Location                         |
-|---------|-------------------|-------|----------------------------------|
-| Monday  | 9:30 am – 5:30 pm | 8.0   | Swinburne University             |
-| Tuesday | 9:30 am – 4:30 pm | 7.0   | Swinburne University / Home      |
-| Friday  | 9:30 am – 3:45 pm | 6.25  | Monash University                |
+| Day     | Time              | Hours | Location                    |
+| ------- | ----------------- | ----- | --------------------------- |
+| Monday  | 9:30 am – 5:30 pm | 8.0   | Swinburne University        |
+| Tuesday | 9:30 am – 4:30 pm | 7.0   | Swinburne University / Home |
+| Friday  | 9:30 am – 3:45 pm | 6.25  | Monash University           |
 
 **Total Hours per Week:** 21.25 hours
 
@@ -27,10 +28,10 @@ This time plan outlines how I will complete the required **220 internship hours 
 
 ## Total Internship Hours Calculation
 
-| Item | Hours |
-|------|-------|
-| Weekly hours | 21.25 |
-| Number of weeks | 12 |
+| Item            | Hours         |
+| --------------- | ------------- |
+| Weekly hours    | 21.25         |
+| Number of weeks | 12            |
 | **Total hours** | **255 hours** |
 
 This schedule exceeds the minimum required **220 hours**, ensuring all internship requirements are met even if minor adjustments are required.
@@ -41,9 +42,9 @@ This schedule exceeds the minimum required **220 hours**, ensuring all internshi
 
 The following schedule will be followed consistently for **Weeks 1–12**:
 
-- **Monday:** 9:30 am – 5:30 pm — Swinburne University  
-- **Tuesday:** 9:30 am – 4:30 pm — Swinburne University / Home  
-- **Friday:** 9:30 am – 3:45 pm — Monash University  
+- **Monday:** 9:30 am – 5:30 pm — Swinburne University
+- **Tuesday:** 9:30 am – 4:30 pm — Swinburne University / Home
+- **Friday:** 9:30 am – 3:45 pm — Monash University
 
 ---
 

@@ -1,12 +1,15 @@
 # 📌 Creating & Reviewing Pull Requests
 
 ## What is a Pull Request (PR) and why is it used?
+
 A Pull Request (PR) is a way to propose changes from a branch into another branch (usually `main`). It is used to show what changes were made, why they were made, and to allow other people to review the work before it becomes part of the main codebase. PRs create a clear space for discussion, review, and approval, which helps teams collaborate safely.
 
 ---
 
 ## Why are PRs important in a team workflow?
+
 PRs are important because they:
+
 - Improve code quality through review and feedback
 - Reduce the chance of bugs reaching the main branch
 - Create a documented history of decisions and changes
@@ -18,7 +21,9 @@ In a team environment, PRs also help ensure that changes are understood by more 
 ---
 
 ## What makes a well-structured PR?
+
 A well-structured PR usually includes:
+
 - A clear and descriptive **title** (what the PR does)
 - A short **summary** explaining the purpose of the change
 - Specific details about **what changed** and **why**
@@ -32,7 +37,9 @@ A good PR makes it easy for reviewers to understand the change quickly and give 
 ---
 
 ## What I learned from reviewing an open-source PR
+
 When I reviewed a PR in a public open-source repository, I noticed that:
+
 - Reviews often focus on readability, maintainability, and long-term impact, not just whether the code works
 - Reviewers ask for changes politely and give clear reasoning
 - Discussions can include alternatives and trade-offs, especially around performance and edge cases
@@ -43,7 +50,9 @@ This showed me that reviewing is not about criticism—it’s about improving th
 ---
 
 ## Requesting feedback on my PR
+
 To request feedback from a peer or mentor, I would:
+
 - Share the PR link directly
 - Summarise what the PR changes in 1–2 sentences
 - Mention what kind of feedback I want (logic, style, UI, edge cases)
@@ -53,12 +62,11 @@ This helps reviewers know what to look for and makes the review process smoother
 
 ---
 
-
 ## Reflection
+
 Creating PRs encourages better communication and accountability. It also helps me work more carefully because I know my changes will be reviewed. I want to build the habit of making smaller, clearer PRs and writing descriptions that make reviewing easy.
 
 ---
-
 
 # 📌 Writing Meaningful Commit Messages
 
@@ -67,24 +75,24 @@ Creating PRs encourages better communication and accountability. It also helps m
 To complete the commit message exercise, I created multiple commits using different commit message styles and pushed them to my GitHub repository. Below are the actual commit messages from my commit history.
 
 ### Vague commit message
-Commit hash: `37f06ca`
 
+Commit hash: `37f06ca`
 
 This commit message is too vague and does not explain what was changed or why, making it unhelpful for understanding the project history.
 
 ---
 
 ### Overly detailed commit message
-Commit hash: `02afe7b`
 
+Commit hash: `02afe7b`
 
 This commit message contains excessive detail and is difficult to scan quickly when reviewing commit history.
 
 ---
 
 ### Well-structured commit message
-Commit hash: `a2570d8`
 
+Commit hash: `a2570d8`
 
 This commit message is clear and concise, describing exactly what was added. It provides enough context without unnecessary detail and makes the purpose of the change easy to understand.
 
@@ -92,10 +100,10 @@ This commit message is clear and concise, describing exactly what was added. It 
 
 These commits demonstrate the difference between vague, overly detailed, and well-structured commit messages and were pushed to GitHub as evidence.
 
-
-
 ## Best practices I found for commit messages
+
 A good commit message should be:
+
 - **Clear and specific** about what changed and why
 - **Short and scannable** (a brief summary line that is easy to read in history)
 - Written in an **action/imperative style** (e.g., “Add…”, “Fix…”, “Update…”)
@@ -107,7 +115,9 @@ After looking at open-source commit histories, the best messages quickly tell yo
 ---
 
 ## What makes a good commit message?
+
 A good commit message:
+
 - Explains the **purpose** of the change (not just the existence of a change)
 - Uses **specific wording** (e.g., “Fix login validation for empty email” instead of “Fix bug”)
 - Matches the scope of the commit (small change → small message; larger change → add short context)
@@ -116,7 +126,9 @@ A good commit message:
 ---
 
 ## How does a clear commit message help in team collaboration?
+
 Clear commit messages help collaboration because they:
+
 - Make it easier for teammates to understand what changed and why
 - Improve code reviews by giving context up front
 - Help with debugging and tracing when a behaviour changed
@@ -126,7 +138,9 @@ Clear commit messages help collaboration because they:
 ---
 
 ## How can poor commit messages cause issues later?
+
 Poor commit messages can cause problems because they:
+
 - Make it difficult to identify which commit introduced a bug
 - Slow down investigations during incidents or regressions
 - Create confusion for new team members reading history
@@ -140,6 +154,7 @@ Overall, good commit messages are a small habit that saves time and prevents con
 # 📌 Debugging with git bisect
 
 ## What does `git bisect` do?
+
 `git bisect` is a Git tool that helps find the exact commit that introduced a bug. It uses a binary search approach: you mark one commit as **good** (where the bug does not exist) and another as **bad** (where the bug exists). Git then checks out a commit in the middle, and you test it. Based on whether that commit is good or bad, Git narrows the search range by half each time until it identifies the first bad commit.
 
 In simple terms: it helps you locate the bug-causing commit quickly, even when there are many commits.
@@ -147,7 +162,9 @@ In simple terms: it helps you locate the bug-causing commit quickly, even when t
 ---
 
 ## When would you use it in a real-world debugging situation?
+
 I would use `git bisect` when:
+
 - A bug is present now, but I know it worked previously
 - There have been many commits since it last worked, making it unclear where the bug started
 - The bug can be reliably reproduced (so I can test each checked-out commit)
@@ -158,7 +175,9 @@ This is especially useful for regressions, where a feature used to work and sudd
 ---
 
 ## How does it compare to manually reviewing commits?
+
 Compared to manually reviewing commits, `git bisect` is:
+
 - **Faster:** it reduces the number of commits you need to check dramatically by using binary search (instead of checking one-by-one).
 - **More reliable:** it is a structured method that avoids guessing or missing the correct commit.
 - **Less overwhelming:** it helps narrow down changes even when commit history is large.
@@ -172,7 +191,9 @@ Manual review can still be helpful once the bad commit is found, but using `git 
 To practice using `git bisect`, I created a simple test scenario in my repository where a bug was deliberately introduced and then identified using the Git CLI.
 
 ### Test scenario description
+
 I created a small utility function and made a series of commits:
+
 1. An initial commit where the function worked correctly.
 2. One or more intermediate commits with refactoring or minor changes.
 3. A commit where I intentionally introduced a bug by changing the core logic of the function so that it produced an incorrect result.
@@ -180,9 +201,11 @@ I created a small utility function and made a series of commits:
 This ensured there was a clear point in the commit history where the behaviour changed from correct to incorrect.
 
 ### Using git bisect
+
 I then used the Git command-line interface to locate the faulty commit.
 
 The process I followed was:
+
 - I confirmed the bug existed on the current commit.
 - I started the bisect process using `git bisect start`.
 - I marked the current commit as bad using `git bisect bad`.
@@ -191,12 +214,15 @@ The process I followed was:
 - After each test, I marked the commit as `good` or `bad`.
 
 ### Result
+
 After several steps, Git reported the **first bad commit**, which was the commit where I had changed the function logic incorrectly. This confirmed exactly which change introduced the bug.
 
 Once identified, I exited bisect mode using `git bisect reset`.
 
 ### What this demonstrated
+
 This exercise demonstrated that:
+
 - `git bisect` is an efficient way to locate regressions in a project with many commits.
 - It is much faster and more reliable than manually reviewing every commit.
 - Using bisect requires having a reproducible way to test whether a bug exists.
@@ -208,20 +234,24 @@ I confirmed this experiment by running `git bisect` directly in the CLI and obse
 # 📌 Advanced Git Commands & When to Use Them
 
 ## `git checkout main -- <file>`
+
 ### What it does
+
 This command restores a specific file from the `main` branch into my current working branch **without switching branches**. It replaces the current version of that file with the version that exists on `main`, while leaving other files and changes untouched.
 
 ### When I’d use it in a real project
+
 - If I accidentally broke a single file and want to reset just that file to the version on `main`
 - If I want to discard experimental edits to one file but keep other local work
 - If I need the latest “known good” version of a file from `main` without doing a full merge or reset
 
-
 **What I did**
+
 1. Modified a file locally to create an uncommitted change.
 2. Restored that file back to the version on `main` without affecting other files.
 
 **Commands I ran**
+
 ```bash
 echo "TEMP LINE" >> README.md
 git status
@@ -374,7 +404,7 @@ Merge conflicts are a normal part of collaborative development. They occur when 
 
 ---
 
-## Write about your experience in 
+## Write about your experience in
 
 ## Merge Conflicts & Conflict Resolution – Practical Evidence
 
@@ -461,3 +491,4 @@ You might stage changes without committing when:
 - You are waiting for feedback or need to make final checks before committing
 
 Overall, staging allows you to work more deliberately and helps maintain a clean, understandable Git history.
+```
