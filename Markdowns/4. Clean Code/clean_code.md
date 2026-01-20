@@ -330,3 +330,41 @@ Poor naming can lead to:
 ## How did refactoring improve code readability?
 Renaming improved readability by making the code self-explanatory. After refactoring, I could scan the code and understand the purpose of variables and functions quickly without needing extra comments. This reduces cognitive load, makes debugging easier, and improves collaboration because other developers can understand and maintain the code more confidently.
 
+---
+
+# 📌 Writing Small, Focused Functions
+
+## Research: Best practices for small, single-purpose functionsResearch best practices for writing small, single-purpose functions.
+Small, focused functions are easier to understand, test, and maintain. Best practices include:
+- Follow the **Single Responsibility Principle**: one function should do one job.
+- Keep functions short enough that the intent is obvious at a glance.
+- Use **clear, verb-based names** that describe the action (e.g., `validateCart`, `calculateTotal`).
+- Avoid deeply nested logic by using **guard clauses** and early returns.
+- Extract repeated logic into reusable helpers.
+- Keep inputs/outputs simple and predictable (avoid hidden side effects where possible).
+- Write functions that are easy to unit test (pure functions when practical).
+
+---
+
+## Find an example of a long, complex function in an existing codebase (or write your own).
+I used a checkout/order-processing style function as my example because it commonly becomes long and complex. The original version mixed:
+- validation (checking inputs)
+- calculation (totals/discounts)
+- business rules (member discount, coupons)
+- formatting (rounding/currency)
+into one large function.
+
+---
+
+## Why is breaking down functions beneficial?
+Breaking down functions is beneficial because:
+- **Readability improves**: each step becomes clearer and easier to follow.
+- **Testing becomes easier**: small functions can be tested independently.
+- **Maintenance is safer**: changing one rule usually affects one function, reducing unintended side effects.
+- **Reuse increases**: helper functions can be reused in other parts of the codebase.
+- **Debugging is faster**: it’s easier to isolate which step is causing incorrect behaviour.
+
+---
+
+## How did refactoring improve the structure of the code?
+Refactoring improved structure by separating responsibilities into clear, smaller functions (e.g., validation, total calculation, discount application, rounding). This made the main “orchestration” function much shorter and easier to understand because it reads like a sequence of steps. The code became more modular, easier to extend (e.g., adding a new discount rule), and less error-prone because each function has a single clear purpose.
