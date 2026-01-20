@@ -368,3 +368,33 @@ Breaking down functions is beneficial because:
 
 ## How did refactoring improve the structure of the code?
 Refactoring improved structure by separating responsibilities into clear, smaller functions (e.g., validation, total calculation, discount application, rounding). This made the main “orchestration” function much shorter and easier to understand because it reads like a sequence of steps. The code became more modular, easier to extend (e.g., adding a new discount rule), and less error-prone because each function has a single clear purpose.
+
+---
+
+# 📌 Avoiding Code Duplication
+
+## Research the "Don't Repeat Yourself" (DRY) principle.
+The DRY principle means that each piece of knowledge or logic should have a single, clear source in the codebase. When the same logic is copied in multiple places, it becomes harder to maintain because changes must be repeated everywhere. DRY encourages creating reusable functions, shared utilities, and consistent patterns so that behaviour stays aligned across the project.
+
+---
+
+## Duplicated code found (example)
+In my test code, I had repeated formatting logic for names in multiple functions (e.g., building full names by trimming first/last name and concatenating them). The duplication looked harmless at first, but it created multiple places where the same behaviour needed to stay consistent.
+
+---
+
+## What were the issues with duplicated code?
+Duplicated code caused several problems:
+- **Higher maintenance cost:** if the formatting rule changes (e.g., handling missing names or extra spaces), I would need to update multiple functions.
+- **Risk of inconsistent behaviour:** one copy could be updated while another is forgotten, causing inconsistent output.
+- **Harder testing:** tests might need to be duplicated too, and bugs could be fixed in one place but still exist elsewhere.
+- **More noise in the codebase:** repeated logic makes files longer and harder to scan.
+
+---
+
+## How did refactoring improve maintainability?
+Refactoring improved maintainability by extracting the repeated logic into a single reusable helper function. This created one “source of truth” for that behaviour. Now:
+- updates only need to happen in one place
+- the codebase is shorter and clearer
+- it’s easier to test and reuse the shared logic
+- future changes are safer because the risk of inconsistencies is reduced
