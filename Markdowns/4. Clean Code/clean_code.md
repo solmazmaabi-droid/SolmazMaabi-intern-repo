@@ -243,6 +243,43 @@ The issue was that the original code relied on assumptions about input quality. 
 ### How does handling errors improve reliability?
 Handling errors improves reliability by making the code behave consistently even when something unexpected happens. Validation and guard clauses prevent bad data from flowing through the system, reduce crashes, and provide clearer failure messages. This makes the software more stable for users and easier for developers to maintain, test, and debug over time.
 
+---
+
+# 📌 Code Formatting & Style Guides
+
+## Research the importance of consistent code style.
+Consistent code style matters because it makes a codebase easier to read, review, and maintain—especially in a team. When everyone follows the same conventions, developers spend less time interpreting formatting differences and more time understanding logic. It also reduces “style noise” in pull requests, so reviews focus on behaviour and design rather than spacing, quotes, or indentation.
+
+## Review the Airbnb javascript style guide.
+From reviewing Airbnb’s style approach, the main ideas I noticed were:
+- Prefer clarity and consistency over clever shortcuts.
+- Use meaningful naming and avoid ambiguous patterns.
+- Encourage modern JavaScript best practices (e.g., `const` by default, clear imports, strict equality).
+- Keep code predictable for other developers by following shared conventions.
+
+## Install and configure ESLint and Prettier in your development environment.
+I installed and configured:
+- **ESLint** to detect code quality issues and enforce style rules.
+- **Prettier** to automatically format code consistently.
+- **Airbnb style configuration** to apply a widely recognised JavaScript/React style standard.
+This setup helps enforce consistency automatically rather than relying on manual formatting.
+
+---
+
+## Why is code formatting important?
+Code formatting is important because it improves readability and reduces misunderstandings. In real projects, many people read the same code, and consistent formatting makes it easier to scan and quickly understand intent. It also helps reduce merge conflicts caused by inconsistent formatting and creates cleaner diffs in Git, making PR reviews faster and more focused.
+
+## What issues did the linter detect?
+When running ESLint with Airbnb rules, common issues detected included:
+- **Unused variables/imports** (code that’s declared but never used)
+- **Inconsistent spacing/formatting** (before Prettier ran)
+- **Prefer `const` over `let`** where values are not reassigned
+- **General best-practice warnings** that improve maintainability (e.g., clearer patterns around functions, imports, and React conventions where applicable)
+
+These issues were useful because they highlight small problems early—before they become confusing or cause bugs.
+
+## Did formatting the code make it easier to read?
+Yes. Running Prettier made formatting consistent across files, which made the code easier to scan and reduced visual clutter. It also improved Git diffs by standardising formatting automatically, which makes future reviews and debugging easier. Overall, automatic formatting reduced manual effort and made the codebase feel more predictable to work in.
 
 
 ```

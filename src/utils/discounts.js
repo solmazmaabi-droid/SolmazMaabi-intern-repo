@@ -11,7 +11,7 @@ function applyCoupon(price, couponValue) {
 }
 
 function applyMemberDiscount(price, userType) {
-  if (userType !== "member") return price;
+  if (userType !== 'member') return price;
   return price * (1 - MEMBER_DISCOUNT_RATE);
 }
 
@@ -20,8 +20,8 @@ function roundToCents(value) {
 }
 
 function calculateFinalPrice(price, userType, hasCoupon, couponValue) {
-  if (typeof price !== "number" || Number.isNaN(price) || price < 0) {
-    throw new Error("price must be a non-negative number");
+  if (typeof price !== 'number' || Number.isNaN(price) || price < 0) {
+    throw new Error('price must be a non-negative number');
   }
 
   let finalPrice = applyMemberDiscount(price, userType);

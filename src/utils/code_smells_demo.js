@@ -9,12 +9,8 @@ const SHIPPING_RATE = 0.07;
 const BASE_SHIPPING_FEE = 12.99;
 
 function calculateShippingCost(orderTotal) {
-  if (
-    typeof orderTotal !== "number" ||
-    Number.isNaN(orderTotal) ||
-    orderTotal < 0
-  ) {
-    throw new Error("orderTotal must be a non-negative number");
+  if (typeof orderTotal !== 'number' || Number.isNaN(orderTotal) || orderTotal < 0) {
+    throw new Error('orderTotal must be a non-negative number');
   }
 
   if (orderTotal > FREE_SHIPPING_THRESHOLD) return 0;
@@ -26,7 +22,7 @@ function calculateShippingCost(orderTotal) {
 // --------------------------------------------------
 function validateCart(cart) {
   if (!Array.isArray(cart) || cart.length === 0) {
-    throw new Error("Cart is empty");
+    throw new Error('Cart is empty');
   }
 }
 
@@ -35,7 +31,7 @@ function calculateCartTotal(cart) {
 }
 
 function applyMemberDiscount(total, userType) {
-  return userType === "member" ? total * 0.9 : total;
+  return userType === 'member' ? total * 0.9 : total;
 }
 
 function applyCoupon(total, couponValue) {
@@ -99,14 +95,14 @@ function canUserAccessFeature(user) {
   if (!user.isActive) return false;
   if (!user.subscription) return false;
 
-  return user.subscription.plan === "pro";
+  return user.subscription.plan === 'pro';
 }
 
 // --------------------------------------------------
 // 6) Commented-Out Code -> Remove dead code, rely on Git history
 // --------------------------------------------------
 function loadUserData() {
-  return fetch("/api/user").then((response) => response.json());
+  return fetch('/api/user').then((response) => response.json());
 }
 
 // --------------------------------------------------

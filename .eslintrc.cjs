@@ -4,18 +4,18 @@ module.exports = {
     node: true,
     es2021: true,
   },
-  extends: ["airbnb", "airbnb/hooks", "plugin:prettier/recommended"],
+  extends: ['airbnb', 'airbnb/hooks', 'plugin:prettier/recommended'],
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
   settings: {
     react: {
-      version: "detect",
+      version: 'detect',
     },
   },
   rules: {
-    "react/react-in-jsx-scope": "off",
-    "no-console": "off",
+    'react/react-in-jsx-scope': 'off',
+    'no-console': 'off',
   },
 };
