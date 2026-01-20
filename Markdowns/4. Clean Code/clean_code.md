@@ -281,5 +281,52 @@ These issues were useful because they highlight small problems early—before th
 ## Did formatting the code make it easier to read?
 Yes. Running Prettier made formatting consistent across files, which made the code easier to scan and reduced visual clutter. It also improved Git diffs by standardising formatting automatically, which makes future reviews and debugging easier. Overall, automatic formatting reduced manual effort and made the codebase feel more predictable to work in.
 
+---
 
-```
+# 📌 Naming Variables & Functions
+
+## Research best practices for naming variables and functions.
+Good naming is one of the most important parts of clean code because names communicate intent. Best practices include:
+- Use **descriptive, specific names** that explain purpose (e.g., `totalPrice` instead of `x`).
+- Prefer **nouns for variables** (things/data) and **verbs for functions** (actions/behaviour), e.g., `calculateTotal()`, `formatUserName()`.
+- Keep naming **consistent** across the project (same style, same terminology).
+- Avoid unnecessary abbreviations unless they are widely understood in the team/domain.
+- Include units or meaning when relevant (e.g., `timeoutMs`, `ageYears`).
+- Use boolean naming that reads naturally (e.g., `isActive`, `hasAccess`, `shouldRetry`).
+- Choose names that match the domain/problem space (align with product language and business terms).
+
+---
+
+## Research best practices for naming variables and functions.
+I found/created code where names like `x`, `tmp`, `data`, `thing`, or `calc()` were used. These names were unclear because they did not communicate intent, forcing the reader to decode the logic by reading every line carefully.
+
+I refactored by renaming:
+- vague variables (e.g., `tmp`) into meaningful ones (e.g., `total`, `sum`, `formattedName`)
+- generic function names (e.g., `calc()`) into intent-based names (e.g., `calculateSum()`, `computeFinalPrice()`)
+- ambiguous booleans (e.g., `flag`) into readable conditions (e.g., `isMember`, `hasCoupon`)
+
+---
+
+## What makes a good variable or function name?
+A good name is:
+- **intent-revealing** (you can understand what it represents without reading the implementation)
+- **unambiguous** (it can’t be easily misunderstood)
+- **consistent** with project style and domain language
+- **appropriately scoped** (shorter names for small scopes, more descriptive names for wider scope)
+- **action-based for functions** (names describe what the function does)
+
+---
+
+## What issues can arise from poorly named variables?
+Poor naming can lead to:
+- misunderstandings during coding and code review
+- bugs caused by incorrect assumptions about what a variable represents
+- slower development because developers waste time “decoding” meaning
+- harder onboarding for new team members
+- risky refactoring, because it’s unclear what the code is supposed to do
+
+---
+
+## How did refactoring improve code readability?
+Renaming improved readability by making the code self-explanatory. After refactoring, I could scan the code and understand the purpose of variables and functions quickly without needing extra comments. This reduces cognitive load, makes debugging easier, and improves collaboration because other developers can understand and maintain the code more confidently.
+
