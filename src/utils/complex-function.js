@@ -1,25 +1,37 @@
-// BEFORE: One large function with multiple responsibilities
-function processOrder(cart, userType, couponValue) {
-  if (!cart || cart.length === 0) {
+// AFTER: Small, focused helper functions
+
+function validateCart(cart) {
+  if (!Array.isArray(cart) || cart.length === 0) {
     throw new Error("Cart is empty");
   }
+}
 
-  let total = 0;
-  for (let i = 0; i < cart.length; i++) {
-    total += cart[i].price * cart[i].quantity;
-  }
+function calculateCartTotal(cart) {
+  return cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+}
 
-  if (userType === "member") {
-    total = total * 0.9;
-  }
+function applyMemberDiscount(total, userType) {
+  return userType === "member" ? total * 0.9 : total;
+}
 
-  if (couponValue) {
-    total = total - couponValue;
-    if (total < 0) {
-      total = 0;
-    }
-  }
+function applyCoupon(total, couponValue) {
+  if (!couponValue) return total;
+  return Math.max(0, total - couponValue);
+}
 
-  total = Math.round(total * 100) / 100;
-  return total;
+function roundToTwoDecimals(value) {
+  return Math.round(value * 100) / 100;
+}
+
+function processOrder(cart, userType, couponValue) {
+  validateCart(cart);
+
+  const subtotal = calculateCartTotal(cart);
+  const discounted = applyMemberDiscount(subtotal, userType);
+  const afterCoupon = applyCoupon(discounted, couponValue);
+
+  return roundToTwoDecimals(afterCoupon);
 }
