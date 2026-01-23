@@ -23,3 +23,14 @@ Props allow data to be passed into components, making them flexible and reusable
 ## ❓ What happens if we modify state directly instead of using `setState`?
 
 If we modify state directly instead of using `setState` (or the setter function from `useState`), React will not recognise that the state has changed. As a result, the component will not re-render, and the UI may not update to reflect the new state. This can cause the application to behave unpredictably and the UI to become out of sync with the underlying data. Using `setState` ensures React knows when state changes and can update the component correctly.
+
+---
+
+# 📌 Styling with Tailwind CSS
+## ❓ What are the advantages of using Tailwind CSS?
+
+Tailwind CSS allows developers to style components quickly using utility classes directly in the JSX. It reduces the need for writing custom CSS files and helps maintain a consistent design system across the application. Because styles are applied at the component level, it is easier to understand how a component looks by reading its code. Tailwind also improves development speed and encourages reusable UI patterns.
+
+## ❓ What are some potential pitfalls?
+
+One potential pitfall of using Tailwind CSS is that JSX can become cluttered with many utility classes, which may reduce readability. There is also a learning curve, as developers need to become familiar with Tailwind’s utility class naming system. If not structured carefully, Tailwind usage can lead to duplicated styles instead of reusable components.
