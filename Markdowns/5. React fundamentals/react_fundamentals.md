@@ -42,3 +42,11 @@ One potential pitfall of using Tailwind CSS is that JSX can become cluttered wit
 ## ❓ What are some common issues when working with lists in React?
 
 A common issue when working with lists in React is not providing a unique `key` prop for each list item, which can cause rendering and performance problems. Another issue is using array indexes as keys, which may lead to unexpected behaviour when items are added, removed, or reordered. Mutating state directly instead of creating a new array can also prevent React from updating the UI correctly.
+
+---
+
+# 📌 Navigation with React Router
+
+### ❓ What are the advantages of client-side routing?
+
+Client-side routing allows navigation between pages without reloading the entire page, resulting in faster and smoother user experiences. It reduces server requests and enables better state preservation between pages. Client-side routing also makes it easier to build single-page applications with dynamic and responsive navigation.
