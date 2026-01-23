@@ -34,3 +34,11 @@ Tailwind CSS allows developers to style components quickly using utility classes
 ## ❓ What are some potential pitfalls?
 
 One potential pitfall of using Tailwind CSS is that JSX can become cluttered with many utility classes, which may reduce readability. There is also a learning curve, as developers need to become familiar with Tailwind’s utility class naming system. If not structured carefully, Tailwind usage can lead to duplicated styles instead of reusable components.
+
+---
+
+# 📌 Working with Lists & User Input
+
+## ❓ What are some common issues when working with lists in React?
+
+A common issue when working with lists in React is not providing a unique `key` prop for each list item, which can cause rendering and performance problems. Another issue is using array indexes as keys, which may lead to unexpected behaviour when items are added, removed, or reordered. Mutating state directly instead of creating a new array can also prevent React from updating the UI correctly.

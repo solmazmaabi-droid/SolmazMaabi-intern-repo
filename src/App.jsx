@@ -1,5 +1,6 @@
 import HelloWorld from "./components/HelloWorld";
 import Counter from "./components/Counter";
+import ListForm from "./components/ListForm";
 
 export default function App() {
   <div className="p-6 bg-blue-600 text-white">Tailwind test</div>
@@ -8,6 +9,7 @@ export default function App() {
     <div className="min-h-screen flex flex-col items-center justify-center gap-6 p-8">
       <HelloWorld name="Focus Bear" />
       <Counter />
+      <ListForm />
     </div>
   );
 }
