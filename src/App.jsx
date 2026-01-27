@@ -4,6 +4,8 @@ import ListForm from "./components/ListForm";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import Profile from "./Profile";
+import UseEffectDemo from "./components/UseEffectDemo";
+
 
 export default function App() {
   <div className="p-6 bg-blue-600 text-white">Tailwind test</div>
@@ -27,6 +29,9 @@ export default function App() {
         <Link to="/components/ListForm" className="text-blue-600 underline">
           ListForm
         </Link>
+        <Link to="/components/UseEffectDemo" className="text-blue-600 underline">
+          UseEffect
+        </Link>
       </nav>
 
       <Routes>
@@ -35,6 +40,7 @@ export default function App() {
         <Route path="/components/HelloWorld" element={<HelloWorld name="Focus Bear" />} />
         <Route path="/components/Counter" element={<Counter />} />
         <Route path="/components/ListForm" element={<ListForm />} />
+        <Route path="/components/UseEffectDemo" element={<UseEffectDemo />} />
       </Routes>
    
     </div>
