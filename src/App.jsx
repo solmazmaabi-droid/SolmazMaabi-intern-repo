@@ -8,6 +8,7 @@ import UseEffectDemo from "./components/UseEffectDemo";
 import UseMemoDemo from "./components/UseMemoDemo";
 import UseCallbackDemo from "./components/UseCallbackDemo";
 import FormikForm from "./components/FormikForm";
+import I18nDemo from "./components/I18nDemo";
 
 export default function App() {
   <div className="p-6 bg-blue-600 text-white">Tailwind test</div>
@@ -43,6 +44,9 @@ export default function App() {
         <Link to="/components/FormikForm" className="text-blue-600 underline">
           FormikForm
         </Link>
+        <Link to="/components/I18nDemo" className="text-blue-600 underline">
+          i18next
+        </Link>
       </nav>
 
       <Routes>
@@ -55,6 +59,7 @@ export default function App() {
         <Route path="/components/UseMemoDemo" element={<UseMemoDemo />} />
         <Route path="/components/UseCallbackDemo" element={<UseCallbackDemo />} />
         <Route path="/components/FormikForm" element={<FormikForm />} />
+        <Route path="/components/I18nDemo" element={<I18nDemo />} />
 
       </Routes>
    

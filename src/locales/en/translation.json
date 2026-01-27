@@ -1,0 +1,7 @@
+{
+  "welcome": "Welcome to Focus Bear!",
+  "description": "This message is translated using i18next.",
+  "changeLanguage": "Change language",
+  "profile": "Profile",
+  "home": "Home"
+}
