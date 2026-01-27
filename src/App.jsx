@@ -7,6 +7,7 @@ import Profile from "./Profile";
 import UseEffectDemo from "./components/UseEffectDemo";
 import UseMemoDemo from "./components/UseMemoDemo";
 import UseCallbackDemo from "./components/UseCallbackDemo";
+import FormikForm from "./components/FormikForm";
 
 export default function App() {
   <div className="p-6 bg-blue-600 text-white">Tailwind test</div>
@@ -39,6 +40,9 @@ export default function App() {
         <Link to="/components/UseCallbackDemo" className="text-blue-600 underline">
           UseCallback
         </Link>
+        <Link to="/components/FormikForm" className="text-blue-600 underline">
+          FormikForm
+        </Link>
       </nav>
 
       <Routes>
@@ -50,6 +54,7 @@ export default function App() {
         <Route path="/components/UseEffectDemo" element={<UseEffectDemo />} />
         <Route path="/components/UseMemoDemo" element={<UseMemoDemo />} />
         <Route path="/components/UseCallbackDemo" element={<UseCallbackDemo />} />
+        <Route path="/components/FormikForm" element={<FormikForm />} />
 
       </Routes>
    
