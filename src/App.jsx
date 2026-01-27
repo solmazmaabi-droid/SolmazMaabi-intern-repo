@@ -5,6 +5,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import Profile from "./Profile";
 import UseEffectDemo from "./components/UseEffectDemo";
+import UseMemoDemo from "./components/UseMemoDemo";
 
 
 export default function App() {
@@ -32,6 +33,9 @@ export default function App() {
         <Link to="/components/UseEffectDemo" className="text-blue-600 underline">
           UseEffect
         </Link>
+        <Link to="/components/UseMemoDemo" className="text-blue-600 underline">
+          UseMemo
+        </Link>
       </nav>
 
       <Routes>
@@ -41,6 +45,7 @@ export default function App() {
         <Route path="/components/Counter" element={<Counter />} />
         <Route path="/components/ListForm" element={<ListForm />} />
         <Route path="/components/UseEffectDemo" element={<UseEffectDemo />} />
+        <Route path="/components/UseMemoDemo" element={<UseMemoDemo />} />
       </Routes>
    
     </div>
