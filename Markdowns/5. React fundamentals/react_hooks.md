@@ -27,3 +27,21 @@ You should avoid using `useMemo` for cheap or simple calculations because memois
 
 If `useMemo` is removed, the expensive calculation will run on every re-render, even when the relevant inputs have not changed. This can lead to slower UI updates and a laggy user experience, especially when rendering large lists or performing heavy computations.
 
+---
+
+# 📌 Preventing Unnecessary Renders with useCallback
+
+
+## ❓ What problem does useCallback solve?
+
+`useCallback` solves the problem of unnecessary re-renders caused by changing function references. In React, functions are recreated on every render, so passing a function as a prop can cause child components to re-render even when the logic has not changed. `useCallback` preserves the same function reference unless its dependencies change.
+
+## ❓ How does useCallback work differently from useMemo?
+
+`useCallback` memoises a function, while `useMemo` memoises the result of a computation. `useCallback(fn, deps)` is essentially a specialised version of `useMemo` that returns a stable function reference instead of a value.
+
+## ❓ When would useCallback not be useful?
+
+`useCallback` is not useful when functions are not passed as props or used as dependencies, or when components are small and inexpensive to re-render. Overusing `useCallback` can add unnecessary complexity without providing meaningful performance benefits.
+
+

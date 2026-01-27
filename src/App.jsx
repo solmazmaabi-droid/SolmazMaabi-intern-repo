@@ -6,7 +6,7 @@ import Home from "./Home";
 import Profile from "./Profile";
 import UseEffectDemo from "./components/UseEffectDemo";
 import UseMemoDemo from "./components/UseMemoDemo";
-
+import UseCallbackDemo from "./components/UseCallbackDemo";
 
 export default function App() {
   <div className="p-6 bg-blue-600 text-white">Tailwind test</div>
@@ -36,6 +36,9 @@ export default function App() {
         <Link to="/components/UseMemoDemo" className="text-blue-600 underline">
           UseMemo
         </Link>
+        <Link to="/components/UseCallbackDemo" className="text-blue-600 underline">
+          UseCallback
+        </Link>
       </nav>
 
       <Routes>
@@ -46,6 +49,8 @@ export default function App() {
         <Route path="/components/ListForm" element={<ListForm />} />
         <Route path="/components/UseEffectDemo" element={<UseEffectDemo />} />
         <Route path="/components/UseMemoDemo" element={<UseMemoDemo />} />
+        <Route path="/components/UseCallbackDemo" element={<UseCallbackDemo />} />
+
       </Routes>
    
     </div>
