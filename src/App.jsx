@@ -9,6 +9,7 @@ import UseMemoDemo from "./components/UseMemoDemo";
 import UseCallbackDemo from "./components/UseCallbackDemo";
 import FormikForm from "./components/FormikForm";
 import I18nDemo from "./components/I18nDemo";
+import AxiosPostTest from "./components/AxiosPostTest";
 
 export default function App() {
   <div className="p-6 bg-blue-600 text-white">Tailwind test</div>
@@ -47,9 +48,13 @@ export default function App() {
         <Link to="/components/I18nDemo" className="text-blue-600 underline">
           i18next
         </Link>
+        <Link to="/components/AxiosPostTest" className="text-blue-600 underline">
+          AxiosPostTest
+        </Link>
       </nav>
 
       <Routes>
+        
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/components/HelloWorld" element={<HelloWorld name="Focus Bear" />} />
@@ -60,6 +65,8 @@ export default function App() {
         <Route path="/components/UseCallbackDemo" element={<UseCallbackDemo />} />
         <Route path="/components/FormikForm" element={<FormikForm />} />
         <Route path="/components/I18nDemo" element={<I18nDemo />} />
+        <Route path="/components/AxiosPostTest" element={<AxiosPostTest />} />
+        {/* <Route path="/login" element={<Login />} /> */}
 
       </Routes>
    
