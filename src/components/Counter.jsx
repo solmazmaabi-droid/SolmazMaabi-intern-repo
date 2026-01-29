@@ -1,20 +1,44 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+  reset,
+} from "../features/counter/counterSlice";
 import Button from "./Button";
 
-function Counter() {
-  const [count, setCount] = useState(0);
+export default function Counter() {
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
+  const [amount, setAmount] = useState(1);
+
+  const handleAddAmount = () => {
+    const num = Number(amount);
+    if (!Number.isFinite(num)) return;
+    dispatch(incrementByAmount(num));
+  };
 
   return (
-    <div className="flex flex-col items-center gap-4 p-6 bg-gray-100 rounded-lg shadow-md">
-      <p className="text-xl font-semibold text-gray-800">
-        Count: {count}
-      </p>
+    <div style={{ display: "grid", gap: 12, maxWidth: 360 }}>
+      <h2>Count: {count}</h2>
 
-      <Button onClick={() => setCount(count + 1)}>
-        Increment
-      </Button>
+      <div style={{ display: "flex", gap: 8 }}>
+        <Button onClick={() => dispatch(decrement())}>-</Button>
+        <Button onClick={() => dispatch(increment())}>+</Button>
+        <Button onClick={() => dispatch(reset())}>Reset</Button>
+      </div>
+
+      <div style={{ display: "flex", gap: 8 }}>
+        <input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          style={{ width: 120 }}
+        />
+        <Button onClick={handleAddAmount}>Add amount</Button>
+      </div>
     </div>
   );
 }
-
-export default Counter;
