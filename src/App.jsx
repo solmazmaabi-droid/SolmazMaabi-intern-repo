@@ -10,6 +10,7 @@ import UseCallbackDemo from "./components/UseCallbackDemo";
 import FormikForm from "./components/FormikForm";
 import I18nDemo from "./components/I18nDemo";
 import AxiosPostTest from "./components/AxiosPostTest";
+import StaleClosureBug from "./StaleClosureBug";
 
 export default function App() {
   <div className="p-6 bg-blue-600 text-white">Tailwind test</div>
@@ -51,6 +52,9 @@ export default function App() {
         <Link to="/components/AxiosPostTest" className="text-blue-600 underline">
           AxiosPostTest
         </Link>
+        <Link to="/StaleClosureBug" className="text-blue-600 underline">
+          StaleClosureBug
+        </Link>
       </nav>
 
       <Routes>
@@ -67,6 +71,7 @@ export default function App() {
         <Route path="/components/I18nDemo" element={<I18nDemo />} />
         <Route path="/components/AxiosPostTest" element={<AxiosPostTest />} />
         {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/StaleClosureBug" element={<StaleClosureBug />} />
 
       </Routes>
    
