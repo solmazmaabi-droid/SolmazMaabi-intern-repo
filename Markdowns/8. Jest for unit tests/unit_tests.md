@@ -18,3 +18,13 @@ Simulating user interaction required learning how to query elements using access
 
 ## Additional challenge encountered
 While testing React components, I encountered issues related to configuring Jest to work with modern React features. This included resolving `React is not defined` errors caused by JSX runtime configuration and enabling DOM-specific matchers by installing and setting up `@testing-library/jest-dom` so that assertions like `toBeInTheDocument` could be used.
+
+---
+
+# 📌 Mocking API Calls in Jest
+
+## Why is it important to mock API calls in tests?
+Mocking API calls is important because it keeps tests fast, reliable, and independent of external services. By avoiding real network requests, tests become deterministic and can consistently verify how components behave in loading, success, and error states. This also allows developers to test edge cases that may be difficult or unreliable to reproduce with real APIs.
+
+## What are some common pitfalls when testing asynchronous code?
+Common pitfalls include asserting results before asynchronous state updates have completed, which can cause flaky or failing tests. Another issue is forgetting to handle rejected promises, leading to untested error states. Tests can also become unreliable if mocks are not reset between runs or if asynchronous operations continue after a test has finished.
