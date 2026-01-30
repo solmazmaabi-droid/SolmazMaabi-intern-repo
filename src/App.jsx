@@ -11,6 +11,7 @@ import FormikForm from "./components/FormikForm";
 import I18nDemo from "./components/I18nDemo";
 import AxiosPostTest from "./components/AxiosPostTest";
 import StaleClosureBug from "./StaleClosureBug";
+import CounterMessage from "./components/CounterMessage";
 
 export default function App() {
   <div className="p-6 bg-blue-600 text-white">Tailwind test</div>
@@ -62,7 +63,15 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/components/HelloWorld" element={<HelloWorld name="Focus Bear" />} />
-        <Route path="/components/Counter" element={<Counter />} />
+        <Route
+          path="/components/Counter"
+          element={
+            <>
+              <Counter />
+              <CounterMessage />
+            </>
+          }
+        />
         <Route path="/components/ListForm" element={<ListForm />} />
         <Route path="/components/UseEffectDemo" element={<UseEffectDemo />} />
         <Route path="/components/UseMemoDemo" element={<UseMemoDemo />} />
