@@ -28,3 +28,13 @@ Mocking API calls is important because it keeps tests fast, reliable, and indepe
 
 ## What are some common pitfalls when testing asynchronous code?
 Common pitfalls include asserting results before asynchronous state updates have completed, which can cause flaky or failing tests. Another issue is forgetting to handle rejected promises, leading to untested error states. Tests can also become unreliable if mocks are not reset between runs or if asynchronous operations continue after a test has finished.
+
+---
+
+# 📌 Testing Redux with Jest
+
+## What was the most challenging part of testing Redux?
+The most challenging part was understanding what to test at each level: reducer behaviour, action creators, and async thunk state transitions. For async logic, it was also important to structure tests so they were deterministic and didn’t depend on real network calls or timing.
+
+## How do Redux tests differ from React component tests?
+Redux tests focus on pure logic and state transitions (reducers and actions), so they are typically faster and more predictable. React component tests focus on UI behaviour and user interactions, which often involves the DOM, rendering, and asynchronous updates. Redux tests usually assert state changes directly, while component tests assert what the user can see and do.
